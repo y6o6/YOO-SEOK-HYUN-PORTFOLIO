@@ -1,0 +1,61 @@
+@charset "UTF-8";
+@import "pretendard.css";
+/* 초기화 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Pretendard";
+  width: 100%;
+  height: 100%;
+  background-color: #111;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+ul, ol, li {
+  list-style: none;
+}
+
+img{
+  max-width: 100%;
+  vertical-align: top;
+}
+
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  border: none;
+  font-family: "Pretendard";
+}
+
+button {
+  background: inherit;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+  overflow: visible;
+  cursor: pointer;
+  font-family: "Pretendard";
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+
