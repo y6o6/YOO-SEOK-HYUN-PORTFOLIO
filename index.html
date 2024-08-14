@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="./css/common.css">
         <link rel="stylesheet" href="./css/style.css">
         <link rel="stylesheet" href="./css/aos.css">
-    
+
     </head>
     <body>
         <header id="header">
@@ -25,7 +25,7 @@
                         <a href="#project">PORTFOLIO</a>
                     </li>
                     <li>
-                        <a href="">CONTACT</a>
+                        <a href="#conatct">CONTACT</a>
                     </li>
                 </ul>
             </div>
@@ -83,11 +83,11 @@
                             <br>
                             프로젝트 리스트 입니다.</h1>
                         <div class="btn-wrap">
-                            <a href="" class="btn active">UI/UX DESIGN</a>
-                            <a href="" class="btn">Another DESIGN</a>
+                            <a href="" class="btn active" data-id="1">UI/UX DESIGN</a>
+                            <a href="" class="btn" data-id="2">Another DESIGN</a>
                         </div>
                     </div>
-                    <ul class="prolist">
+                    <ul class="prolist" data-id="1">
                         <li data-aos="fade-down" data-aos-duration="1000">
                             <a
                                 href="https://www.cytoacademy.or.kr/clonebuilder/static/index.html"
@@ -146,6 +146,64 @@
                             </a>
                         </li>
                     </ul>
+                    <ul class="prolist" data-id="2" style="display: none;">
+                        <li data-aos="fade-down" data-aos-duration="1000">
+                            <a href="https://medicalai.skkumed.ac.kr/" target="_blank">
+                                <div class="imgBox">
+                                    <span>자세히보기</span>
+                                    <img src="./img/pro_04.png" alt="">
+                                </div>
+                                <div class="txt">
+                                    <h2>MedicalAI<span>디자인 · 퍼블리싱</span>
+                                    </h2>
+                                    <p>의료인공지능융합인재양성사압단 홈페이지 제작</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li data-aos="fade-down" data-aos-duration="1500">
+                            <a href="">
+                                <div class="imgBox">
+                                    <span>자세히보기</span>
+                                    <img src="./img/pro_02.png" alt="">
+                                </div>
+                                <div class="txt">
+                                    <h2>엠게임 귀혼 리뉴얼
+                                        <span>디자인 · 퍼블리싱</span>
+                                    </h2>
+                                    <p>엠게임 귀혼 리뉴얼 디자인 (개인작업물)</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li data-aos="fade-down" data-aos-duration="1000">
+                            <a href="https://www.cytoacademy.or.kr/clonebuilder/static/index.html" target="_blank">
+                                <div class="imgBox">
+                                    <span>자세히보기</span>
+                                    <img src="./img/pro_01.png" alt="">
+                                </div>
+                                <div class="txt">
+                                    <h2>Clone Builder
+                                        <span>디자인 · 퍼블리싱</span>
+                                    </h2>
+                                    <p>실시간 백업프로그램 홍보 페이지</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li data-aos="fade-down" data-aos-duration="2000">
+                            <a href="https://www.skkumed.ac.kr/v2/" target="_blank">
+                                <div class="imgBox">
+                                    <span>자세히보기</span>
+                                    <img src="./img/pro_03.png" alt="">
+                                </div>
+                                <div class="txt">
+                                    <h2>성균관대학교 의과대학
+                                        <span>디자인 · 퍼블리싱</span>
+                                    </h2>
+                                    <p>의과대학 국문/영문 홈페이지 리뉴얼</p>
+                                </div>
+                            </a>
+                        </li>
+                        
+                    </ul>
                 </div>
             </div>
             <div id="conatct">
@@ -173,7 +231,40 @@
         <script src="./js/swiper.js"></script>
         <script src="./js/aos.js"></script>
         <script>
+            $(function () {
+                $('.btn').click(function (e) {
+                    e.preventDefault();
+
+                    // 모든 버튼의 active 클래스를 제거하고, 클릭된 버튼에만 추가
+                    $('.btn').removeClass('active');
+                    $(this).addClass('active');
+
+                    // 클릭된 버튼의 data-id 속성 값 가져오기
+                    var id = $(this).data('id');
+
+                    // 모든 .prolist 숨기고, 클릭된 버튼의 data-id 와 일치하는 .prolist 표시
+                    $('.prolist').hide();
+                    $('.prolist[data-id="' + id + '"]').show();
+                    
+                    return false;
+                });
+            });
+        </script>
+        <script>
             AOS.init();
+
+            window.addEventListener('scroll', function () {
+                const header = document.getElementById('header');
+                if (window.scrollY > 50) {
+                    header
+                        .classList
+                        .add('scrolled'); // 스크롤이 50px 이상이면 'scrolled' 클래스 추가
+                } else {
+                    header
+                        .classList
+                        .remove('scrolled'); // 스크롤이 50px 이하이면 'scrolled' 클래스 제거
+                }
+            });
         </script>
     </body>
 </html>

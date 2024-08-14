@@ -11,6 +11,14 @@ html {
     width: 100%;
     top: 0;
     z-index: 9999;
+    
+}
+#header.scrolled{
+    background: rgb(17,17,17);
+    background: -moz-linear-gradient(180deg, rgba(17,17,17,1) 0%, rgba(17,17,17,0) 100%);
+    background: -webkit-linear-gradient(180deg, rgba(17,17,17,1) 0%, rgba(17,17,17,0) 100%);
+    background: linear-gradient(180deg, rgba(17,17,17,1) 0%, rgba(17,17,17,0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#111111",endColorstr="#111111",GradientType=1);
 }
 #header .container {
     height: 80px;
@@ -206,7 +214,7 @@ html {
 #project .container .titlebox {
     position: sticky;
     align-self: flex-start;
-    top: 100px;
+    top: 150px;
 }
 .prolist {
     display: flex;
