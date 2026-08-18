@@ -16,6 +16,9 @@
       --accent-it: #dc2626;
       --accent-ch: #ea580c;
       --spot-bg: #f1f5f9;
+      --transit-bg: #f0fdf4;
+      --transit-border: #bbf7d0;
+      --transit-text: #166534;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
     body {
@@ -45,6 +48,7 @@
       top: 73px;
       z-index: 99;
       box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+      margin-top: 20px;
     }
     .nav-tab {
       flex: 1;
@@ -56,10 +60,7 @@
       text-decoration: none;
       border-bottom: 2px solid transparent;
     }
-    .nav-tab:active, .nav-tab:hover {
-      color: var(--primary);
-      border-bottom-color: var(--primary);
-    }
+    
 
     .container { padding: 16px 16px 0; max-width: 600px; margin: 0 auto; }
     .section-title {
@@ -100,6 +101,44 @@
     .day-route { font-size: 13px; font-weight: 600; color: var(--primary); margin: 4px 0 6px; }
     .day-desc { font-size: 13px; color: #475569; margin-bottom: 8px; }
     
+    /* 이동 시간 안내 박스 */
+    .transit-box {
+      background: var(--transit-bg);
+      border: 1px solid var(--transit-border);
+      border-radius: 10px;
+      padding: 10px 12px;
+      margin: 8px 0;
+      font-size: 12px;
+      color: #1e293b;
+    }
+    .transit-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--transit-text);
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .transit-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+    .transit-list li {
+      margin-bottom: 3px;
+      display: flex;
+      align-items: flex-start;
+      gap: 4px;
+      line-height: 1.4;
+    }
+    .transit-list li:last-child { margin-bottom: 0; }
+    .transit-time {
+      font-weight: 700;
+      color: #047857;
+      white-space: nowrap;
+    }
+
     /* 관광지 정보 링크 태그 그룹 */
     .spot-group {
       display: flex;
@@ -191,18 +230,19 @@
   <header>
     <h1>🇮🇹 이탈리아 & 🇨🇭 스위스 여행</h1>
     <p>2027.04.19 (월) ~ 2027.05.01 (토) • 10박 12일</p>
+    <nav class="nav-tabs">
+      <a href="#schedule" class="nav-tab">📅 전체 일정</a>
+      <a href="#stays" class="nav-tab">🏨 숙소 예약</a>
+      <a href="#tickets" class="nav-tab">🎟️ 교통/티켓</a>
+    </nav>
   </header>
 
-  <nav class="nav-tabs">
-    <a href="#schedule" class="nav-tab">📅 전체 일정</a>
-    <a href="#stays" class="nav-tab">🏨 숙소 예약</a>
-    <a href="#tickets" class="nav-tab">🎟️ 교통/티켓</a>
-  </nav>
+ 
 
   <div class="container">
 
     <!-- 1. 일자별 상세 일정 -->
-    <h2 class="section-title" id="schedule">📅 일자별 상세 일정 & 명소 가이드</h2>
+    <h2 class="section-title" id="schedule">📅 일자별 상세 일정 & 이동 시간</h2>
 
     <!-- Day 1 -->
     <div class="card">
@@ -212,6 +252,14 @@
       </div>
       <div class="day-route">인천 ➔ 로마 (기내 1박)</div>
       <div class="day-desc">21:50 인천국제공항 출발 (야간 비행)</div>
+      
+      <div class="transit-box">
+        <div class="transit-title">⏱️ 상세 이동 시간</div>
+        <ul class="transit-list">
+          <li>✈️ 인천공항 ➔ 로마 FCO 공항: <span class="transit-time">직항 약 13시간 30분</span></li>
+        </ul>
+      </div>
+
       <div class="day-stay">🛏️ 기내 숙박</div>
     </div>
 
@@ -224,6 +272,17 @@
       <div class="day-route">로마 도착 ➔ 역사지구 도보 탐방</div>
       <div class="day-desc">09:45 FCO 공항 도착 ➔ 숙소 짐 보관 후 시내 도보 산책</div>
       
+      <div class="transit-box">
+        <div class="transit-title">⏱️ 상세 이동 시간</div>
+        <ul class="transit-list">
+          <li>🚆 FCO 공항 ➔ 테르미니역 (레오나르도): <span class="transit-time">기차 32분</span></li>
+          <li>🚶‍♂️ 테르미니역 ➔ 스페인 광장: <span class="transit-time">지하철 5분 / 도보 20분</span></li>
+          <li>🚶‍♂️ 스페인 광장 ➔ 트레비 분수: <span class="transit-time">도보 약 8~10분 (650m)</span></li>
+          <li>🚶‍♂️ 트레비 분수 ➔ 판테온: <span class="transit-time">도보 약 8~10분 (650m)</span></li>
+          <li>🚶‍♂️ 판테온 ➔ 나보나 광장: <span class="transit-time">도보 약 4~5분 (350m)</span></li>
+        </ul>
+      </div>
+
       <div class="spot-group">
         <div class="spot-label">🔍 방문 명소 정보 보기 (터치)</div>
         <a href="https://ko.wikipedia.org/wiki/스페인_광장_(로마)" target="_blank" class="spot-link">📍 스페인 광장</a>
@@ -244,6 +303,16 @@
       <div class="day-route">바티칸 투어 ➔ 콜로세움 & 포로 로마노</div>
       <div class="day-desc">오전 바티칸 박물관 & 성 베드로 대성당 ➔ 오후 고대 로마 유적 탐방</div>
       
+      <div class="transit-box">
+        <div class="transit-title">⏱️ 상세 이동 시간</div>
+        <ul class="transit-list">
+          <li>🚇 시내 ➔ 바티칸 박물관: <span class="transit-time">지하철 A선(오타비아노역) 약 15~20분</span></li>
+          <li>🚶‍♂️ 바티칸 박물관 ➔ 성 베드로 대성당: <span class="transit-time">도보 5~10분</span></li>
+          <li>🚇 바티칸 ➔ 콜로세움: <span class="transit-time">지하철 A+B 환승 약 25분 / 버스 30분</span></li>
+          <li>🚶‍♂️ 콜로세움 ➔ 포로 로마노: <span class="transit-time">도보 1~2분 (바로 인접)</span></li>
+        </ul>
+      </div>
+
       <div class="spot-group">
         <div class="spot-label">🔍 방문 명소 정보 보기 (터치)</div>
         <a href="https://ko.wikipedia.org/wiki/바티칸_미술관" target="_blank" class="spot-link">📍 바티칸 미술관</a>
@@ -264,6 +333,16 @@
       <div class="day-route">기차 이동 (1.5h) ➔ 피렌체 두오모 & 일몰</div>
       <div class="day-desc">오전 피렌체 도착 후 체크인 ➔ 대성당 쿠폴라 등정 ➔ 미켈란젤로 광장 노을 감상</div>
       
+      <div class="transit-box">
+        <div class="transit-title">⏱️ 상세 이동 시간</div>
+        <ul class="transit-list">
+          <li>🚆 로마 테르미니역 ➔ 피렌체 SMN역: <span class="transit-time">고속기차 1시간 36분</span></li>
+          <li>🚶‍♂️ 피렌체 SMN역 ➔ 두오모(피렌체 대성당): <span class="transit-time">도보 약 8~10분</span></li>
+          <li>🚶‍♂️ 두오모 ➔ 베키오 다리: <span class="transit-time">도보 약 7~8분</span></li>
+          <li>🚌 베키오 다리 ➔ 미켈란젤로 광장: <span class="transit-time">12/13번 버스 15분 / 도보(오르막) 20분</span></li>
+        </ul>
+      </div>
+
       <div class="spot-group">
         <div class="spot-label">🔍 방문 명소 정보 보기 (터치)</div>
         <a href="https://ko.wikipedia.org/wiki/피렌체_대성당" target="_blank" class="spot-link">📍 피렌체 대성당 (두오모)</a>
@@ -283,6 +362,15 @@
       <div class="day-route">피사의 사탑 반일치기 ➔ 우피치 미술관</div>
       <div class="day-desc">오전 피사 이동 후 사탑 관람 ➔ 피렌체 복귀 후 르네상스 예술 탐방 및 쇼핑</div>
       
+      <div class="transit-box">
+        <div class="transit-title">⏱️ 상세 이동 시간</div>
+        <ul class="transit-list">
+          <li>🚆 피렌체 SMN역 ➔ 피사 첸트랄레역: <span class="transit-time">기차 편도 50분~1시간</span></li>
+          <li>🚌 피사 첸트랄레역 ➔ 피사의 사탑: <span class="transit-time">시내버스 10분 / 도보 20분</span></li>
+          <li>🚶‍♂️ 피렌체 SMN역 ➔ 우피치 미술관: <span class="transit-time">도보 약 12~15분</span></li>
+        </ul>
+      </div>
+
       <div class="spot-group">
         <div class="spot-label">🔍 방문 명소 정보 보기 (터치)</div>
         <a href="https://ko.wikipedia.org/wiki/피사의_사탑" target="_blank" class="spot-link">📍 피사의 사탑</a>
@@ -301,6 +389,16 @@
       <div class="day-route">알프스 입성 (기차 5~6시간)</div>
       <div class="day-desc">피렌체 출발 ➔ 밀라노/스위스 경유 ➔ 인터라켄 도착 및 체크인, Coop 장보기</div>
       
+      <div class="transit-box">
+        <div class="transit-title">⏱️ 상세 이동 시간</div>
+        <ul class="transit-list">
+          <li>🚆 피렌체 SMN ➔ 밀라노 중앙역: <span class="transit-time">고속기차 1시간 55분</span></li>
+          <li>🚆 밀라노 중앙역 ➔ 스위스 슈피츠(Spiez): <span class="transit-time">유로시티 2시간 30분</span></li>
+          <li>🚆 슈피츠 ➔ 인터라켄 동역(Interlaken Ost): <span class="transit-time">기차 21분</span></li>
+          <li><b>총 이동 소요 시간</b>: <span class="transit-time">환승 대기 포함 약 5시간 30분~6시간</span></li>
+        </ul>
+      </div>
+
       <div class="spot-group">
         <div class="spot-label">🔍 방문 명소 정보 보기 (터치)</div>
         <a href="https://www.myswitzerland.com/ko/destinations/interlaken/" target="_blank" class="spot-link">📍 인터라켄 마을 가이드</a>
@@ -318,6 +416,18 @@
       <div class="day-route">융프라우요흐 등정 ➔ 라우터브루넨</div>
       <div class="day-desc">아이거 익스프레스 곤돌라 ➔ 유럽의 정상 스핑크스 전망대 ➔ 폭포 마을 산책</div>
       
+      <div class="transit-box">
+        <div class="transit-title">⏱️ 상세 이동 시간</div>
+        <ul class="transit-list">
+          <li>🚆 인터라켄 동역 ➔ 그린델발트 터미널: <span class="transit-time">기차 20분</span></li>
+          <li>🚡 그린델발트 터미널 ➔ 아이거글렛처: <span class="transit-time">아이거익스프레스 곤돌라 15분</span></li>
+          <li>🚞 아이거글렛처 ➔ 융프라우요흐 정상: <span class="transit-time">산악열차 26분</span></li>
+          <li><b>(인터라켄 동역 ➔ 융프라우 정상 편도 총 1시간 15분)</b></li>
+          <li>🚞 융프라우요흐 ➔ 라우터브루넨: <span class="transit-time">산악열차 약 1시간</span></li>
+          <li>🚆 라우터브루넨 ➔ 인터라켄 동역: <span class="transit-time">기차 20분</span></li>
+        </ul>
+      </div>
+
       <div class="spot-group">
         <div class="spot-label">🔍 방문 명소 정보 보기 (터치)</div>
         <a href="https://www.myswitzerland.com/ko/destinations/jungfraujoch/" target="_blank" class="spot-link">📍 융프라우요흐</a>
@@ -336,6 +446,17 @@
       <div class="day-route">마테호른 당일치기 & 호수 하이킹</div>
       <div class="day-desc">인터라켄 ➔ 체르마트(기차 2.1h) ➔ 고르너그라트 전망대 ➔ 리펠제 호수 반영 하이킹</div>
       
+      <div class="transit-box">
+        <div class="transit-title">⏱️ 상세 이동 시간</div>
+        <ul class="transit-list">
+          <li>🚆 인터라켄 동역 ➔ 체르마트역 (슈피츠/피스프 환승): <span class="transit-time">기차 편도 2시간 10분</span></li>
+          <li>🚞 체르마트 ➔ 고르너그라트 전망대: <span class="transit-time">산악열차 33분</span></li>
+          <li>🚞 고르너그라트 ➔ 로텐보덴 (하이킹 출발): <span class="transit-time">산악열차 5분</span></li>
+          <li>🚶‍♂️ <b>[하이킹]</b> 로텐보덴 ➔ 리펠제 호수 ➔ 리펠베르크: <span class="transit-time">도보 약 50분 (완만한 내리막)</span></li>
+          <li>🚞 리펠베르크 ➔ 체르마트역: <span class="transit-time">산악열차 23분</span></li>
+        </ul>
+      </div>
+
       <div class="spot-group">
         <div class="spot-label">🔍 방문 명소 정보 보기 (터치)</div>
         <a href="https://www.myswitzerland.com/ko/destinations/matterhorn/" target="_blank" class="spot-link">📍 마테호른</a>
@@ -355,6 +476,17 @@
       <div class="day-route">피르스트 액티비티 & 바흐알프제 하이킹</div>
       <div class="day-desc">클리프워크 아찔한 절벽 전망대 ➔ 바흐알프제 호수 트레킹(왕복 1.5h) ➔ 마운틴카트</div>
       
+      <div class="transit-box">
+        <div class="transit-title">⏱️ 상세 이동 시간</div>
+        <ul class="transit-list">
+          <li>🚆 인터라켄 동역 ➔ 그린델발트역: <span class="transit-time">기차 30분</span></li>
+          <li>🚶‍♂️ 그린델발트역 ➔ 피르스트 곤돌라 승강장: <span class="transit-time">도보 10~12분 / 버스 5분</span></li>
+          <li>🚡 피르스트 승강장 ➔ 피르스트 정상: <span class="transit-time">케이블카 25분</span></li>
+          <li>🚶‍♂️ <b>[하이킹]</b> 피르스트 정상 ↔ 바흐알프제 호수: <span class="transit-time">왕복 도보 약 1시간 40분</span></li>
+          <li>🏎️ 피르스트 ➔ 그린델발트 하산 (액티비티 or 곤돌라): <span class="transit-time">약 30~40분</span></li>
+        </ul>
+      </div>
+
       <div class="spot-group">
         <div class="spot-label">🔍 방문 명소 정보 보기 (터치)</div>
         <a href="https://www.myswitzerland.com/ko/destinations/grindelwald-first/" target="_blank" class="spot-link">📍 그린델발트 피르스트</a>
@@ -373,6 +505,15 @@
       <div class="day-route">호수 유람선 or 수도 베른 (예비일)</div>
       <div class="day-desc">에메랄드빛 브리엔츠 호수(이젤트발트) 유람선 또는 스위스 유네스코 수도 베른 구시가지 투어</div>
       
+      <div class="transit-box">
+        <div class="transit-title">⏱️ 상세 이동 시간</div>
+        <ul class="transit-list">
+          <li>⛴️ 인터라켄 동역 선착장 ➔ 이젤트발트: <span class="transit-time">유람선 45분 (버스 103번 이용 시 20분)</span></li>
+          <li>🚆 인터라켄 동역 ➔ 베른(Bern) 중앙역: <span class="transit-time">직행 기차 50분</span></li>
+          <li>🚌 베른역 ➔ 장미공원(Rosengarten): <span class="transit-time">10번 버스 10분 / 도보 25분</span></li>
+        </ul>
+      </div>
+
       <div class="spot-group">
         <div class="spot-label">🔍 방문 명소 정보 보기 (터치)</div>
         <a href="https://www.myswitzerland.com/ko/destinations/lake-brienz/" target="_blank" class="spot-link">📍 브리엔츠 호수 / 이젤트발트</a>
@@ -391,6 +532,15 @@
       <div class="day-route">취리히 이동 (기차 2h) & 시내 관광</div>
       <div class="day-desc">취리히 중앙역 체크인 ➔ 린덴호프 언덕, 리마트강 산책, 구시가지 쇼핑 및 짐 정리</div>
       
+      <div class="transit-box">
+        <div class="transit-title">⏱️ 상세 이동 시간</div>
+        <ul class="transit-list">
+          <li>🚆 인터라켄 동역 ➔ 취리히 중앙역(Zürich HB): <span class="transit-time">기차 1시간 58분</span></li>
+          <li>🚶‍♂️ 취리히 중앙역 ➔ 린덴호프 언덕: <span class="transit-time">도보 약 8~10분</span></li>
+          <li>🚶‍♂️ 린덴호프 ➔ 리마트강 & 구시가지: <span class="transit-time">도보 약 3~5분</span></li>
+        </ul>
+      </div>
+
       <div class="spot-group">
         <div class="spot-label">🔍 방문 명소 정보 보기 (터치)</div>
         <a href="https://www.myswitzerland.com/ko/experiences/lindenhof-historical-oasis-above-the-old-town/" target="_blank" class="spot-link">📍 린덴호프 언덕</a>
@@ -408,6 +558,15 @@
       </div>
       <div class="day-route">공항 기차(10분) ➔ 10:40 출발 ➔ 익일 11:20 인천 도착</div>
       <div class="day-desc">아침 07:45 중앙역 출발 ➔ 공항 수속 후 귀국편 탑승 ➔ 5/1 인천 도착 🏠</div>
+      
+      <div class="transit-box">
+        <div class="transit-title">⏱️ 상세 이동 시간</div>
+        <ul class="transit-list">
+          <li>🚆 취리히 중앙역 ➔ 취리히 공항역(Flughafen): <span class="transit-time">기차 9~12분</span></li>
+          <li>✈️ 취리히 공항 ➔ 인천국제공항: <span class="transit-time">비행 약 11시간 30분</span></li>
+        </ul>
+      </div>
+
       <div class="day-stay">🛏️ 기내 숙박</div>
     </div>
 
