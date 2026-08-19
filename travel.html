@@ -60,7 +60,6 @@
       text-decoration: none;
       border-bottom: 2px solid transparent;
     }
-    
 
     .container { padding: 16px 16px 0; max-width: 600px; margin: 0 auto; }
     .section-title {
@@ -184,6 +183,67 @@
       color: #64748b;
     }
 
+    /* 숙소 후보군 스타일 */
+    .hotel-group {
+      background: #f8fafc;
+      border-radius: 10px;
+      padding: 12px;
+      margin-top: 10px;
+      border: 1px solid #e2e8f0;
+    }
+    .hotel-sub-title {
+      font-size: 12px;
+      font-weight: 800;
+      color: #1e293b;
+      margin-bottom: 6px;
+      margin-top: 10px;
+    }
+    .hotel-sub-title:first-child {
+      margin-top: 0;
+    }
+    .hotel-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .hotel-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: white;
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+      text-decoration: none;
+      color: #334155;
+      font-size: 12px;
+      transition: all 0.2s;
+    }
+    .hotel-item:active {
+      background: #f1f5f9;
+    }
+    .hotel-name {
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .hotel-note {
+      font-size: 11px;
+      color: #64748b;
+      font-weight: normal;
+    }
+    .hotel-tag {
+      font-size: 11px;
+      font-weight: 700;
+      color: #0284c7;
+      background: #f0f9ff;
+      padding: 2px 6px;
+      border-radius: 4px;
+      border: 1px solid #bae6fd;
+      white-space: nowrap;
+    }
+
     /* 예약 링크 및 버튼 */
     .btn-group { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
     .btn {
@@ -236,8 +296,6 @@
       <a href="#tickets" class="nav-tab">🎟️ 교통/티켓</a>
     </nav>
   </header>
-
- 
 
   <div class="container">
 
@@ -574,6 +632,7 @@
     <!-- 2. 숙소 예약 관리 & 링크 -->
     <h2 class="section-title" id="stays">🏨 숙소 예약 링크</h2>
 
+    <!-- 로마 숙소 카드 -->
     <div class="card">
       <div class="day-header">
         <span class="day-title">🇮🇹 로마 (2박)</span>
@@ -581,14 +640,50 @@
       </div>
       <div class="day-desc">
         • <b>일정</b>: 2027.04.20 (화) ~ 04.22 (목)<br>
-        • <b>추천 위치</b>: 스페인 광장, 트레비 분수 부근, 레푸블리카 광장 인근
+        • <b>위치 가이드</b>: 테르미니역 인근(이동 편리) or 스페인 광장 부근(치안·쇼핑)
       </div>
+
+      <div class="hotel-group">
+        <div class="hotel-sub-title">📍 테르미니역 인근 후보</div>
+        <div class="hotel-list">
+          <a href="https://www.booking.com/Share-Rk85kP9" target="_blank" class="hotel-item">
+            <span class="hotel-name">호텔 파트리아 <span class="hotel-note">(가성비·잠만 자기 좋은)</span></span>
+            <span class="hotel-tag">부킹닷컴</span>
+          </a>
+          <a href="https://www.booking.com/Share-cfbZnf4" target="_blank" class="hotel-item">
+            <span class="hotel-name">라일레 호텔 레지오</span>
+            <span class="hotel-tag">부킹닷컴</span>
+          </a>
+          <a href="https://www.booking.com/Share-vV6eHO" target="_blank" class="hotel-item">
+            <span class="hotel-name">호텔 임페로</span>
+            <span class="hotel-tag">부킹닷컴</span>
+          </a>
+          <a href="https://www.booking.com/Share-gGUxVRx" target="_blank" class="hotel-item">
+            <span class="hotel-name">IQ호텔 로마</span>
+            <span class="hotel-tag">부킹닷컴</span>
+          </a>
+          <a href="https://www.booking.com/Share-tAHu6z" target="_blank" class="hotel-item">
+            <span class="hotel-name">더 로마 헬로</span>
+            <span class="hotel-tag">부킹닷컴</span>
+          </a>
+        </div>
+
+        <div class="hotel-sub-title">📍 스페인 광장 인근 후보</div>
+        <div class="hotel-list">
+          <a href="https://www.booking.com/Share-X7P2Rj" target="_blank" class="hotel-item">
+            <span class="hotel-name">호텔 크로체 디 말타</span>
+            <span class="hotel-tag">부킹닷컴</span>
+          </a>
+        </div>
+      </div>
+
       <div class="btn-group">
-        <a href="https://www.agoda.com" target="_blank" class="btn btn-primary">아고다 로마</a>
-        <a href="https://www.booking.com" target="_blank" class="btn">부킹닷컴 로마</a>
+        <a href="https://www.agoda.com" target="_blank" class="btn btn-primary">아고다 전체 검색</a>
+        <a href="https://www.booking.com" target="_blank" class="btn">부킹닷컴 전체 검색</a>
       </div>
     </div>
 
+    <!-- 피렌체 숙소 카드 -->
     <div class="card">
       <div class="day-header">
         <span class="day-title">🇮🇹 피렌체 (2박)</span>
@@ -596,14 +691,34 @@
       </div>
       <div class="day-desc">
         • <b>일정</b>: 2027.04.22 (목) ~ 04.24 (토)<br>
-        • <b>추천 위치</b>: 산타 마리아 노벨라(SMN) 역 도보 5~10분 거리
+        • <b>위치 가이드</b>: 산타 마리아 노벨라(SMN) 역 도보 5~10분 거리
       </div>
+
+      <div class="hotel-group">
+        <div class="hotel-sub-title">📍 피렌체 SMN역 & 시내 후보</div>
+        <div class="hotel-list">
+          <a href="https://www.booking.com/Share-VTbyPpx" target="_blank" class="hotel-item">
+            <span class="hotel-name">Hotel Rosso23 - WTB Hotels</span>
+            <span class="hotel-tag">부킹닷컴</span>
+          </a>
+          <a href="https://www.booking.com/Share-HnkjLkn" target="_blank" class="hotel-item">
+            <span class="hotel-name">C-호텔스 디플로맷</span>
+            <span class="hotel-tag">부킹닷컴</span>
+          </a>
+          <a href="https://www.booking.com/Share-gzKzjIx" target="_blank" class="hotel-item">
+            <span class="hotel-name">레지던스 포르타 알 프라토</span>
+            <span class="hotel-tag">부킹닷컴</span>
+          </a>
+        </div>
+      </div>
+
       <div class="btn-group">
-        <a href="https://www.agoda.com" target="_blank" class="btn btn-primary">아고다 피렌체</a>
-        <a href="https://www.booking.com" target="_blank" class="btn">부킹닷컴 피렌체</a>
+        <a href="https://www.agoda.com" target="_blank" class="btn btn-primary">아고다 전체 검색</a>
+        <a href="https://www.booking.com" target="_blank" class="btn">부킹닷컴 전체 검색</a>
       </div>
     </div>
 
+    <!-- 스위스 인터라켄 카드 -->
     <div class="card">
       <div class="day-header">
         <span class="day-title">🇨🇭 인터라켄 (5박 연박)</span>
@@ -619,6 +734,7 @@
       </div>
     </div>
 
+    <!-- 스위스 취리히 카드 -->
     <div class="card">
       <div class="day-header">
         <span class="day-title">🇨🇭 취리히 (1박)</span>
