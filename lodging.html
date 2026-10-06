@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <title>이탈리아 & 스위스 10박 12일 여행 가이드 - 숙소 목록</title>
+        <style>
+            :root {
+                --primary: #2563eb;
+                --primary-dark: #1d4ed8;
+                --bg: #f8fafc;
+                --card-bg: #ffffff;
+                --text: #1e293b;
+                --text-muted: #64748b;
+                --border: #e2e8f0;
+                --accent-it: #dc2626;
+                --accent-ch: #ea580c;
+                --spot-bg: #f1f5f9;
+                --transit-bg: #f0fdf4;
+                --transit-border: #bbf7d0;
+                --transit-text: #166534;
+            }
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+                -webkit-tap-highlight-color: transparent;
+            }
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", "Malgun Gothic", sans-serif;
+                background-color: var(--bg);
+                color: var(--text);
+                line-height: 1.5;
+                padding-bottom: 60px;
+            }
+            header {
+                background: linear-gradient(135deg, #1e3a8a, #2563eb);
+                color: white;
+                padding: 24px 20px 20px;
+                position: sticky;
+                top: 0;
+                z-index: 100;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            }
+            header h1 {
+                font-size: 20px;
+                font-weight: 800;
+                margin-bottom: 4px;
+            }
+            header p {
+                font-size: 13px;
+                opacity: 0.9;
+            }
+
+            .container {
+                padding: 16px 16px 0;
+                max-width: 600px;
+                margin: 0 auto;
+            }
+            .section-title {
+                font-size: 17px;
+                font-weight: 800;
+                margin: 24px 0 12px;
+                display: flex;
+                align-items: center;
+                gap: 6px;
+            }
+
+            /* 카드 스타일 */
+            .card {
+                background: var(--card-bg);
+                border-radius: 14px;
+                padding: 16px;
+                margin-bottom: 14px;
+                border: 1px solid var(--border);
+                box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            }
+            .day-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 6px;
+            }
+
+            .day-title {
+                font-size: 15px;
+                font-weight: 700;
+                color: var(--text);
+            }
+            .day-desc {
+                font-size: 13px;
+                color: #475569;
+                margin-bottom: 8px;
+            }
+
+            /* 숙소 후보군 스타일 */
+            .hotel-group {
+                background: #f8fafc;
+                border-radius: 10px;
+                padding: 12px;
+                margin-top: 10px;
+                border: 1px solid #e2e8f0;
+            }
+            .hotel-list {
+                display: flex;
+                flex-direction: column;
+                gap: 6px;
+            }
+            .hotel-item {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                background: white;
+                padding: 8px 12px;
+                border-radius: 8px;
+                border: 1px solid #e2e8f0;
+                text-decoration: none;
+                color: #334155;
+                font-size: 12px;
+                transition: all 0.2s;
+            }
+            .hotel-item:active {
+                background: #f1f5f9;
+            }
+            .hotel-name {
+                font-weight: 700;
+                display: flex;
+                align-items: center;
+                gap: 6px;
+            }
+            .hotel-info {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+            }
+            .hotel-price {
+                font-size: 11px;
+                font-weight: 700;
+                color: #059669;
+            }
+            .hotel-tag {
+                font-size: 11px;
+                font-weight: 700;
+                color: #0284c7;
+                background: #f0f9ff;
+                padding: 2px 6px;
+                border-radius: 4px;
+                border: 1px solid #bae6fd;
+                white-space: nowrap;
+            }
+            .hotel-tag-confirmed {
+                font-size: 11px;
+                font-weight: 700;
+                color: #dc2626;
+                background: #fef2f2;
+                padding: 2px 6px;
+                border-radius: 4px;
+                border: 1px solid #fca5a5;
+                white-space: nowrap;
+            }
+
+            /* 예약 링크 및 버튼 */
+            .btn-group {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 6px;
+                margin-top: 10px;
+            }
+            .btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 4px;
+                background-color: #f1f5f9;
+                color: #334155;
+                font-size: 12px;
+                font-weight: 700;
+                padding: 7px 12px;
+                border-radius: 8px;
+                text-decoration: none;
+                border: 1px solid #cbd5e1;
+            }
+            .btn-primary {
+                background-color: var(--primary);
+                color: white;
+                border: none;
+            }
+
+            /* 가격 및 비고 태그 */
+            .price-tag {
+                font-size: 12px;
+                font-weight: 700;
+                color: #059669;
+                background: #ecfdf5;
+                padding: 2px 6px;
+                border-radius: 4px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <header>
+            <h1>🇮🇹 이탈리아 & 🇨🇭 스위스 여행</h1>
+            <p>숙소 후보 및 예약 링크 목록</p>
+        </header>
+
+        <div class="container">
+
+            <h2 class="section-title" id="stays">🏨 숙소 예약 링크</h2>
+
+            <!-- 로마 숙소 카드 -->
+            <div class="card">
+                <div class="day-header">
+                    <span class="day-title">🇮🇹 로마 숙소 후보 (8곳)</span>
+                    <span class="price-tag">8개 검색결과</span>
+                </div>
+                <div class="day-desc">
+                    • <b>체크인</b>: 2027-04-20 (2박)
+                </div>
+
+                <div class="hotel-group">
+                    <div class="hotel-list">
+                        <a href="https://www.agoda.com/ko-kr/hotel-demetra/hotel/rome-it.html?countryId=205&finalPriceView=1&isShowMobileAppPrice=false&cid=1833981&numberOfBedrooms=&familyMode=false&adults=2&children=0&rooms=1&maxRooms=0&checkIn=2027-04-20&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=1&showReviewSubmissionEntry=false&currencyCode=KRW&isFreeOccSearch=false&tspTypes=9&los=2&searchrequestid=c874a65e-5a10-45fe-a93a-d1640b9f8305&ds=sRPZBPRbd10g%2BPx8" target="_blank" class="hotel-item">
+                            <span class="hotel-name">1. 호텔 데메트라</span>
+                            <div class="hotel-info">
+                                <span class="hotel-price">549,881원</span>
+                                <span class="hotel-tag">아고다</span>
+                            </div>
+                        </a>
+                        <a href="https://www.agoda.com/ko-kr/torino-hotel/hotel/rome-it.html?countryId=205&finalPriceView=1&isShowMobileAppPrice=false&cid=1833981&numberOfBedrooms=&familyMode=false&adults=2&children=0&rooms=1&maxRooms=0&checkIn=2027-04-20&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=1&showReviewSubmissionEntry=false&currencyCode=KRW&isFreeOccSearch=false&tspTypes=4%2C8&los=2&searchrequestid=c874a65e-5a10-45fe-a93a-d1640b9f8305&ds=sRPZBPRbd10g%2BPx8" target="_blank" class="hotel-item">
+                            <span class="hotel-name">2. 토리노호텔</span>
+                            <div class="hotel-info">
+                                <span class="hotel-price">499,737원</span>
+                                <span class="hotel-tag">아고다</span>
+                            </div>
+                        </a>
+                        <a href="https://www.agoda.com/ko-kr/hotel-diana-roof-garden/hotel/rome-it.html?countryId=205&finalPriceView=1&isShowMobileAppPrice=false&cid=1833981&numberOfBedrooms=&familyMode=false&adults=2&children=0&rooms=1&maxRooms=0&checkIn=2027-04-20&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=1&showReviewSubmissionEntry=false&currencyCode=KRW&isFreeOccSearch=false&tspTypes=9&los=2&searchrequestid=c874a65e-5a10-45fe-a93a-d1640b9f8305&ds=sRPZBPRbd10g%2BPx8" target="_blank" class="hotel-item">
+                            <span class="hotel-name">3. 호텔 다이애나 루프 가든</span>
+                            <div class="hotel-info">
+                                <span class="hotel-price">498,009원</span>
+                                <span class="hotel-tag">아고다</span>
+                            </div>
+                        </a>
+                        <a href="https://www.booking.com/Share-byBT91" target="_blank" class="hotel-item">
+                            <span class="hotel-name">4. 라 카사 디 에이미</span>
+                            <div class="hotel-info">
+                                <span class="hotel-price">424,574원</span>
+                                <span class="hotel-tag">부킹닷컴</span>
+                            </div>
+                        </a>
+                        <a href="https://www.booking.com/Share-vpKIp5p" target="_blank" class="hotel-item">
+                            <span class="hotel-name">5. Maison Spagna Suites</span>
+                            <div class="hotel-info">
+                                <span class="hotel-price">477,990원</span>
+                                <span class="hotel-tag">부킹닷컴</span>
+                            </div>
+                        </a>
+                        <a href="https://www.booking.com/Share-MW0LG8" target="_blank" class="hotel-item">
+                            <span class="hotel-name">6. 라 돌체 비타 바르베리니</span>
+                            <div class="hotel-info">
+                                <span class="hotel-price">493,436원</span>
+                                <span class="hotel-tag">부킹닷컴</span>
+                            </div>
+                        </a>
+                        <a href="https://www.booking.com/Share-iJRtAI" target="_blank" class="hotel-item">
+                            <span class="hotel-name">7. 레지덴자 로마센트로</span>
+                            <div class="hotel-info">
+                                <span class="hotel-price">561,421원</span>
+                                <span class="hotel-tag">부킹닷컴</span>
+                            </div>
+                        </a>
+                        <a href="https://www.booking.com/Share-RsvjCDV" target="_blank" class="hotel-item">
+                            <span class="hotel-name">8. 아우구스타 루실라 팰리스</span>
+                            <div class="hotel-info">
+                                <span class="hotel-price">556,486원</span>
+                                <span class="hotel-tag">부킹닷컴</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="btn-group">
+                    <a href="https://www.agoda.com" target="_blank" class="btn btn-primary">아고다 전체 검색</a>
+                    <a href="https://www.booking.com" target="_blank" class="btn">부킹닷컴 전체 검색</a>
+                </div>
+            </div>
+
+            <!-- 피렌체 숙소 카드 -->
+            <div class="card">
+                <div class="day-header">
+                    <span class="day-title">🇮🇹 피렌체 숙소</span>
+                    <span class="price-tag">확정</span>
+                </div>
+
+                <div class="hotel-group">
+                    <div class="hotel-list">
+                        <a href="https://www.booking.com/Share-szkHgYe" target="_blank" class="hotel-item">
+                            <span class="hotel-name">9. Vivaldi luxury suites</span>
+                            <div class="hotel-info">
+                                <span class="hotel-price">493,255원</span>
+                                <span class="hotel-tag-confirmed">확정</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 스위스 인터라켄 카드 -->
+            <div class="card">
+                <div class="day-header">
+                    <span class="day-title">🇨🇭 인터라켄 숙소 후보 (5곳)</span>
+                    <span class="price-tag">5개 검색결과</span>
+                </div>
+                <div class="day-desc">
+                    • <b>체크인</b>: 2027-04-24 ~ 2027-04-29 (5박)
+                </div>
+
+                <div class="hotel-group">
+                    <div class="hotel-list">
+                        <a href="https://www.airbnb.co.kr/rooms/23495554?check_in=2027-04-24&check_out=2027-04-29&guests=2&adults=2&s=67&unique_share_id=4483f61f-6f19-4d68-9145-0eed1ce08e2c" target="_blank" class="hotel-item">
+                            <span class="hotel-name">10. 비엔비 1</span>
+                            <div class="hotel-info">
+                                <span class="hotel-price">1,747,431원</span>
+                                <span class="hotel-tag">에어비앤비</span>
+                            </div>
+                        </a>
+                        <a href="https://www.airbnb.co.kr/rooms/10777158?check_in=2027-04-24&check_out=2027-04-29&guests=2&adults=2&s=67&unique_share_id=2b9c2d40-2434-42d6-8719-e9015f2915d2" target="_blank" class="hotel-item">
+                            <span class="hotel-name">11. 비엔비 2</span>
+                            <div class="hotel-info">
+                                <span class="hotel-price">1,493,643원</span>
+                                <span class="hotel-tag">에어비앤비</span>
+                            </div>
+                        </a>
+                        <a href="https://www.airbnb.co.kr/rooms/15727214?check_in=2027-04-24&check_out=2027-04-29&guests=1&adults=2&s=67&unique_share_id=67332d72-72c4-417f-b6de-d7277bbe58cd" target="_blank" class="hotel-item">
+                            <span class="hotel-name">12. 비엔비 3</span>
+                            <div class="hotel-info">
+                                <span class="hotel-price">1,438,158원</span>
+                                <span class="hotel-tag">에어비앤비</span>
+                            </div>
+                        </a>
+                        <a href="https://www.airbnb.co.kr/rooms/1477311834197306490?check_in=2027-04-24&check_out=2027-04-29&guests=1&adults=2&s=67&unique_share_id=b9bfd0f0-1aff-4b89-bf5e-d2ddb660c228" target="_blank" class="hotel-item">
+                            <span class="hotel-name">13. 비엔비 4</span>
+                            <div class="hotel-info">
+                                <span class="hotel-price">1,794,312원</span>
+                                <span class="hotel-tag">에어비앤비</span>
+                            </div>
+                        </a>
+                        <a href="https://www.booking.com/Share-RPh0V9" target="_blank" class="hotel-item">
+                            <span class="hotel-name">14. Alpine City Apartment 1 - GRIWA RENT</span>
+                            <div class="hotel-info">
+                                <span class="hotel-price">1,482,989원</span>
+                                <span class="hotel-tag">부킹닷컴</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="btn-group">
+                    <a href="https://www.booking.com" target="_blank" class="btn btn-primary">부킹닷컴 인터라켄</a>
+                    <a href="https://www.airbnb.co.kr" target="_blank" class="btn">에어비앤비 전체 검색</a>
+                </div>
+            </div>
+
+        </div>
+
+    </body>
+</html>
